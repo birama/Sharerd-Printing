@@ -1,7 +1,7 @@
-using general.IComputer;
+using general;
 
 namespace general{
 
-public Computer : IComputer{
+public class Computer : AComputer<IPrinter,int>{
 }	
 }

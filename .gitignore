@@ -6,6 +6,7 @@ x64/
 [Bb]uild/
 [Bb]in/
 [Oo]bj/
+[Pp]roperties/
 
 # Compiled source #
 ###################
@@ -28,7 +29,7 @@ x64/
 *.rar
 *.tar
 *.zip
-
+*.bat
 # Logs and databases #
 ######################
 *.log
@@ -51,4 +52,5 @@ Desktop.ini
 #######################
 *.suo
 *.user
+*.sln
 *.sln.docstates
