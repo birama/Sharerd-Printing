@@ -5,16 +5,16 @@
 ----------------------
 >A example of distributed printing through the allocation and managment of digital to physical resources.
 
-##Desgin
+##Design
 ---------------------
-Check [Desgin Documentation](Documentation/desgin/) for infomation.
+Check [Design Documentation](Documentation/desgin/) for information.
 
 ##Setup
 ------------------------
 msbuild files called makefile.csproj files are located in the:
 1. [General Libary](general/makefile.csproj)
 2. [Main Program](makefile.csprog)
-By default they complie all files with a cs extenstion.
+By default they compile all files with a cs extenstion.
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 $ git clone https://github.com/vashman/Shared-Printing.git
 $ cd Shared-Printing/general
