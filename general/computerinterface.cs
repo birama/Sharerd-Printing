@@ -1,8 +1,8 @@
 namespace general{
 
-public interface IComputer<Tprinter, Tuser>{
-	public Tprinter[] printer = new Tprinter[];
-	public Tuser[] user = new Tuser[];
+public abstract class AComputer<Tprinter, Tuser>{
+	public Tprinter[] printer = new Tprinter[2];
+	public Tuser[] user = new Tuser[2];
 	public string name;
 }
 

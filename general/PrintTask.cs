@@ -1,3 +1,5 @@
+using System;
+
 namespace general{
 
 class PrintTask : MarshalByRefObject, IPrintTask{

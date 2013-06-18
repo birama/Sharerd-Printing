@@ -1,6 +1,6 @@
 namespace general{
 
-public ServerClient<Ttransfertype> : ATopology<Ttransfertype>{
+public class ServerClient<Ttransfertype> : ATopology<Ttransfertype>{
 
 public ServerClient(IProtocol<Ttransfertype> protocol) : base(protocol){
 
@@ -14,8 +14,8 @@ override public bool connect(Ttransfertype obj){
 return false;
 }
 
-override public void dissconnect(){
-this.protocol.dissconnect();
+override public void disconnect(){
+//this.protocol.dissconnect();
 }
 
 }

@@ -1,23 +1,23 @@
-using general.IProtocol;
-using general.IUser;
-using general.I
+using general;
 
 namespace general{
 
-abstract ATopology<Transfertype>{
+public abstract class ATopology<Ttransertype>{
 //private
-private IUser[] user = new IUser[];
-private IProtocol<Transfertype> protocol;
+//private IUser[] user = new IUser[2];
+
+//protected
+protected IProtocol<Ttransertype> protocol;
 
 //public
-public const string name;
+public string name = "Default Abstract Topology!";
 
-public ATopology(IProtocol<Ttransfertype> protocol){
+public ATopology(IProtocol<Ttransertype> protocol){
 this.protocol = protocol;
 }
 
-abstract public bool connect(Ttransfertype);
-abstract public void dissconnect();
+abstract public bool connect(Ttransertype obj);
+abstract public void disconnect();
 
 }
 }
