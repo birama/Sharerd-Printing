@@ -1,13 +1,14 @@
--Shared-Printing
--
--Purpose
--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--
--Desgin
--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--
--CopyRight
--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Shared-Printing
+
+Purpose
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A example of distributed printing through the allocation and managment of digital to physical resources.
+
+Desgin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+CopyRight
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -Copyright (C) 2013 Sunny Sangha
 -Coprright (C) 2013 Tristin Babbini
--Copyright (C) 2013 Nhiem Truong 
+-Copyright (C) 2013 Nhiem Truong
