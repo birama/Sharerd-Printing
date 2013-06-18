@@ -12,7 +12,7 @@ private IProtocol<Transfertype> protocol;
 //public
 public const string name;
 
-public ATopology(Iprotocol<Ttransfertype> protocol){
+public ATopology(IProtocol<Ttransfertype> protocol){
 this.protocol = protocol;
 }
 
