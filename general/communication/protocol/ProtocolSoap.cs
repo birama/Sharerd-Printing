@@ -6,13 +6,13 @@ using general;
 
 namespace general{
 
-public class ProtocolSoap<Ttransertype> : IProtocol<Ttransertype>{
+public class ProtocolSoap<Ttransfertype> : IProtocol<Ttransfertype>{
 //Private
 private HttpChannel chnl = new HttpChannel(1234);
-private Ttransertype placeholder;
+private Ttransfertype placeholder;
 
 //Public
-public bool connect(Ttransertype objtype, string url){
+public bool connect(Ttransfertype objtype, string url){
 ChannelServices.RegisterChannel(this.chnl,false);
 RemotingConfiguration.RegisterWellKnownServiceType(typeof(objtype),url,WellKnownObjectMode.Singleton);
 chnl.StartListening();
@@ -23,11 +23,11 @@ public void disconnect(){
 this.chnl.StopListening();
 }
 
-public bool send(Ttransertype obj){
+public bool send(Ttransfertype obj){
 return true;
 }
 
-//public Ttransertype recv(return this.placeholder;);
+//public Ttransfertype recv(return this.placeholder;);
 
 }
 
