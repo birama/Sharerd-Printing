@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace printproject{
 
-class Server{
+class ServerStartup{
 
 public Server(){
 List<IPrinter> printerList = new List<IPrinter>();
