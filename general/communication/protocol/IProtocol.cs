@@ -1,13 +1,13 @@
 namespace general{
 
-public interface IProtocol<Ttransertype>{
+public interface IProtocol<Ttransfertype>{
 
 /* Connect
    + Takes T and string as url.
 */
-bool connect(Ttransertype obj, string url);
+bool connect(Ttransfertype obj, string url);
 void disconnect();
-bool send(Ttransertype obj);
+bool send(Ttransfertype obj);
 //Ttransertype recv();
 
 }
