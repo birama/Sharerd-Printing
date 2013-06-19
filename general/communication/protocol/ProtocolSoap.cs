@@ -8,13 +8,17 @@ namespace general{
 
 public class ProtocolSoap<Ttransfertype> : IProtocol<Ttransfertype>{
 //Private
-private HttpChannel chnl = new HttpChannel(1234);
+private HttpChannel chnl;
 private Ttransfertype placeholder;
 
 //Public
+public ProtocolSoap(int port){
+this.chnl = new HttpChannel(port);
+}
+
 public bool connect(Ttransfertype objtype, string url){
 ChannelServices.RegisterChannel(this.chnl,false);
-RemotingConfiguration.RegisterWellKnownServiceType(typeof(objtype),url,WellKnownObjectMode.Singleton);
+RemotingConfiguration.RegisterWellKnownServiceType(typeof(Ttransfertype),url,WellKnownObjectMode.Singleton);
 chnl.StartListening();
 return true;
 }
