@@ -3,9 +3,7 @@
 namespace general{
 
 public interface IPrintTask{
-        //void SetValue(int newval);
-        //int GetValue();
-        void SetPrintTask(string userName, string printName, int printCopies);
+	void SetPrintTask(string userName, string printName, int printCopies);
         String GetUserName();
         void SetUserName(string name);
         String GetPrintName();

@@ -1,4 +1,4 @@
-public interface IPrinter <Ttasktype>{
-interface string getType();
-interface getState();
+public interface IPrinter <Ttasktype, Tstate>{
+string getType();
+Tstate getState();
 }
