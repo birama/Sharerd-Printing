@@ -3,23 +3,32 @@ using System.Runtime.Remoting;
 using general;
 using System.Collections;
 
-namespace printproject{
+namespace Server{
 
-class ServerStartup{
+class Server : IApplication{
+
+private List<IPrinter> printerList;
+private ATopology<IPrintTask> comm; 
 
 public Server(){
-List<IPrinter> printerList = new List<IPrinter>();
-Console.WriteLine("static void Main(): \t-Server Started");
-ATopology<IPrintTask> comm = new ServerClient<IPrintTask>(SoapProtocol<IPrinttask>);
-comm.connect(PrintTask);
-// the server will keep running until keypress.
-Thread.Sleep(1000);
-Printer ptest = new Printer("debug");
-PrintTask pm = new PrintTask();
-Thread.Sleep(1000);
-PrintTask pmf = new PrintTask("me","doc",1);
-Console.ReadLine();
+this.printerlist = new List<IPrinter>();
+this.comm = new ServerClient<IPrintTask>(SoapProtocol<IPrinttask>);
 }
 
+public bool init(){
+PrintTask pm = new PrintTask();
+Printer ptest = new Printer("debug");
+PrintTask pmf = new PrintTask("me","doc",1);
+return true;
+}
+
+public bool start(){
+Console.WriteLine("static void Main(): \t-Server Started");
+this.comm.connect(PrintTask);
+return true;
+}
+
+public bool stop(){}
+return this.comm.disconnect();
 }
 }

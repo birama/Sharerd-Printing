@@ -9,9 +9,13 @@ namespace Shared-Printing{
 	+ seperates the configuration from the startup process.
 */
 class Shared-Printing{
-
+private IApplication app;
 static void Main(string[] args){
-
+	if (args[0] == "server"){
+	this.app = new Server();
+	} else if (args[0]) == "client"{
+	this.app = new Client();
+	}
 }
 
 }
