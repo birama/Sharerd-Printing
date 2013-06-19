@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="dir_de327f73201ab1d87cc607fe5bbff19a" kind="dir">
+    <compoundname>general/communication/topology</compoundname>
+    <innerfile refid="_atopology_8cs">Atopology.cs</innerfile>
+    <innerfile refid="_server_client_8cs">ServerClient.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/communication/topology/"/>
+  </compounddef>
+</doxygen>

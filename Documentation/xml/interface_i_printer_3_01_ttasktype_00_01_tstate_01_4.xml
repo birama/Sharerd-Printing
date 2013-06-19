@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="interface_i_printer_3_01_ttasktype_00_01_tstate_01_4" kind="interface" prot="public">
+    <compoundname>IPrinter&lt; Ttasktype, Tstate &gt;</compoundname>
+    <templateparamlist>
+      <param>
+        <type>Ttasktype</type>
+      </param>
+      <param>
+        <type>Tstate</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_i_printer_3_01_ttasktype_00_01_tstate_01_4_1a5bd7a982069ca4f4da8633b18f5bacd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string IPrinter&lt; Ttasktype, Tstate &gt;.getType</definition>
+        <argsstring>()</argsstring>
+        <name>getType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/IPrinter.cs" line="2" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_i_printer_3_01_ttasktype_00_01_tstate_01_4_1af00bcb55311b60e29f77fdbdf92275b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Tstate</type>
+        <definition>Tstate IPrinter&lt; Ttasktype, Tstate &gt;.getState</definition>
+        <argsstring>()</argsstring>
+        <name>getState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/IPrinter.cs" line="3" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/IPrinter.cs" line="1" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/IPrinter.cs" bodystart="1" bodyend="4"/>
+    <listofallmembers>
+      <member refid="interface_i_printer_3_01_ttasktype_00_01_tstate_01_4_1af00bcb55311b60e29f77fdbdf92275b2" prot="public" virt="non-virtual"><scope>IPrinter&lt; Ttasktype, Tstate &gt;</scope><name>getState</name></member>
+      <member refid="interface_i_printer_3_01_ttasktype_00_01_tstate_01_4_1a5bd7a982069ca4f4da8633b18f5bacd8" prot="public" virt="non-virtual"><scope>IPrinter&lt; Ttasktype, Tstate &gt;</scope><name>getType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

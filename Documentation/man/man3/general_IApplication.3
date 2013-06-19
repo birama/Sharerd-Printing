@@ -1,0 +1,41 @@
+.TH "general.IApplication" 3 "Wed Jun 19 2013" "Sharerd-Printing" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+general.IApplication \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBServer\&.Server\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBinit\fP ()"
+.br
+.ti -1c
+.RI "bool \fBstart\fP ()"
+.br
+.ti -1c
+.RI "bool \fBstop\fP ()"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "bool general\&.IApplication\&.init ()"
+Initialize Application object +Do any pre setting up before application starts +Should include things not critical to the creation of the object\&. 
+.PP
+Implemented in \fBServer\&.Server\fP\&.
+.SS "bool general\&.IApplication\&.start ()"
+Start application 
+.PP
+Implemented in \fBServer\&.Server\fP\&.
+.SS "bool general\&.IApplication\&.stop ()"
+Stop application +Should return true on successful stop\&. +Should only stop if application is not busy, in this case return false\&. 
+.PP
+Implemented in \fBServer\&.Server\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Sharerd-Printing from the source code\&.

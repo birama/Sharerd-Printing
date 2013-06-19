@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="classgeneral_1_1_a_computer_3_01_tprinter_00_01_tuser_01_4" kind="class" prot="public">
+    <compoundname>general::AComputer&lt; Tprinter, Tuser &gt;</compoundname>
+    <derivedcompoundref refid="classgeneral_1_1_computer" prot="public" virt="non-virtual">general.Computer</derivedcompoundref>
+    <templateparamlist>
+      <param>
+        <type>Tprinter</type>
+      </param>
+      <param>
+        <type>Tuser</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classgeneral_1_1_a_computer_3_01_tprinter_00_01_tuser_01_4_1a2958528912a8e54a2996e34c7dff0f17" prot="public" static="no" mutable="no">
+        <type>Tprinter[]</type>
+        <definition>Tprinter [] general.AComputer&lt; Tprinter, Tuser &gt;.printer</definition>
+        <argsstring></argsstring>
+        <name>printer</name>
+        <initializer>= new Tprinter[2]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/AComputer.cs" line="4" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/AComputer.cs" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgeneral_1_1_a_computer_3_01_tprinter_00_01_tuser_01_4_1a01d747a58d08f2074b8960c5293875fc" prot="public" static="no" mutable="no">
+        <type>Tuser[]</type>
+        <definition>Tuser [] general.AComputer&lt; Tprinter, Tuser &gt;.user</definition>
+        <argsstring></argsstring>
+        <name>user</name>
+        <initializer>= new Tuser[2]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/AComputer.cs" line="5" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/AComputer.cs" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgeneral_1_1_a_computer_3_01_tprinter_00_01_tuser_01_4_1a2757225751249691a992ac3131490c77" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string general.AComputer&lt; Tprinter, Tuser &gt;.name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/AComputer.cs" line="6" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/AComputer.cs" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="0">
+        <label>general.AComputer&lt; Tprinter, Tuser &gt;</label>
+        <link refid="classgeneral_1_1_a_computer_3_01_tprinter_00_01_tuser_01_4"/>
+      </node>
+      <node id="1">
+        <label>general.Computer</label>
+        <link refid="classgeneral_1_1_computer"/>
+        <childnode refid="0" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/AComputer.cs" line="3" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/AComputer.cs" bodystart="3" bodyend="7"/>
+    <listofallmembers>
+      <member refid="classgeneral_1_1_a_computer_3_01_tprinter_00_01_tuser_01_4_1a2757225751249691a992ac3131490c77" prot="public" virt="non-virtual"><scope>general::AComputer&lt; Tprinter, Tuser &gt;</scope><name>name</name></member>
+      <member refid="classgeneral_1_1_a_computer_3_01_tprinter_00_01_tuser_01_4_1a2958528912a8e54a2996e34c7dff0f17" prot="public" virt="non-virtual"><scope>general::AComputer&lt; Tprinter, Tuser &gt;</scope><name>printer</name></member>
+      <member refid="classgeneral_1_1_a_computer_3_01_tprinter_00_01_tuser_01_4_1a01d747a58d08f2074b8960c5293875fc" prot="public" virt="non-virtual"><scope>general::AComputer&lt; Tprinter, Tuser &gt;</scope><name>user</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

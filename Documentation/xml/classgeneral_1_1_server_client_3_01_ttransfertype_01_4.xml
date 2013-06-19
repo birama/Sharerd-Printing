@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="classgeneral_1_1_server_client_3_01_ttransfertype_01_4" kind="class" prot="public">
+    <compoundname>general::ServerClient&lt; Ttransfertype &gt;</compoundname>
+    <basecompoundref refid="classgeneral_1_1_a_topology_3_01_ttransfertype_01_4" prot="public" virt="non-virtual">general.ATopology&lt; Ttransfertype &gt;</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>Ttransfertype</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgeneral_1_1_server_client_3_01_ttransfertype_01_4_1a9a3c49921544145f2c2f3c6576e455d3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>general.ServerClient&lt; Ttransfertype &gt;.ServerClient</definition>
+        <argsstring>(IProtocol&lt; Ttransfertype &gt; protocol)</argsstring>
+        <name>ServerClient</name>
+        <param>
+          <type>IProtocol&lt; Ttransfertype &gt;</type>
+          <declname>protocol</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/communication/topology/ServerClient.cs" line="5" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/communication/topology/ServerClient.cs" bodystart="5" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeneral_1_1_server_client_3_01_ttransfertype_01_4_1ac79cb3704b830ad1436bb18b48ed5755" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>override bool</type>
+        <definition>override bool general.ServerClient&lt; Ttransfertype &gt;.connect</definition>
+        <argsstring>(Ttransfertype obj)</argsstring>
+        <name>connect</name>
+        <reimplements refid="classgeneral_1_1_a_topology_3_01_ttransfertype_01_4_1ad98d6292318094e2f8e6008324adb6b6">connect</reimplements>
+        <param>
+          <type>Ttransfertype</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/communication/topology/ServerClient.cs" line="9" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/communication/topology/ServerClient.cs" bodystart="9" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeneral_1_1_server_client_3_01_ttransfertype_01_4_1a39edc8a7d4acc3c36baee5b90be87423" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>override void</type>
+        <definition>override void general.ServerClient&lt; Ttransfertype &gt;.disconnect</definition>
+        <argsstring>()</argsstring>
+        <name>disconnect</name>
+        <reimplements refid="classgeneral_1_1_a_topology_3_01_ttransfertype_01_4_1ad51a3927e211946711c52f368ce21301">disconnect</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/communication/topology/ServerClient.cs" line="17" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/communication/topology/ServerClient.cs" bodystart="17" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="49">
+        <label>ATopology&lt;Ttransfertype&gt;</label>
+        <link refid="classgeneral_1_1_a_topology_3_01_ttransfertype_01_4"/>
+      </node>
+      <node id="48">
+        <label>general.ServerClient&lt; Ttransfertype &gt;</label>
+        <link refid="classgeneral_1_1_server_client_3_01_ttransfertype_01_4"/>
+        <childnode refid="49" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="51">
+        <label>ATopology&lt;Ttransfertype&gt;</label>
+        <link refid="classgeneral_1_1_a_topology_3_01_ttransfertype_01_4"/>
+        <childnode refid="52" relation="usage">
+          <edgelabel>protocol</edgelabel>
+        </childnode>
+      </node>
+      <node id="52">
+        <label>general.IProtocol&lt; Ttransfertype &gt;</label>
+        <link refid="interfacegeneral_1_1_i_protocol_3_01_ttransfertype_01_4"/>
+      </node>
+      <node id="50">
+        <label>general.ServerClient&lt; Ttransfertype &gt;</label>
+        <link refid="classgeneral_1_1_server_client_3_01_ttransfertype_01_4"/>
+        <childnode refid="51" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/communication/topology/ServerClient.cs" line="3" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/communication/topology/ServerClient.cs" bodystart="3" bodyend="21"/>
+    <listofallmembers>
+      <member refid="classgeneral_1_1_a_topology_3_01_ttransfertype_01_4_1abe187cf5b67383dcd303edc9238c130f" prot="public" virt="non-virtual"><scope>general::ServerClient&lt; Ttransfertype &gt;</scope><name>ATopology</name></member>
+      <member refid="classgeneral_1_1_server_client_3_01_ttransfertype_01_4_1ac79cb3704b830ad1436bb18b48ed5755" prot="public" virt="virtual"><scope>general::ServerClient&lt; Ttransfertype &gt;</scope><name>connect</name></member>
+      <member refid="classgeneral_1_1_server_client_3_01_ttransfertype_01_4_1a39edc8a7d4acc3c36baee5b90be87423" prot="public" virt="virtual"><scope>general::ServerClient&lt; Ttransfertype &gt;</scope><name>disconnect</name></member>
+      <member refid="classgeneral_1_1_a_topology_3_01_ttransfertype_01_4_1a914adb6d1d3994d9d71aa1df388c4d1d" prot="public" virt="non-virtual"><scope>general::ServerClient&lt; Ttransfertype &gt;</scope><name>name</name></member>
+      <member refid="classgeneral_1_1_a_topology_3_01_ttransfertype_01_4_1aa9fe2e70cf933ceafaa6fa0c16710836" prot="protected" virt="non-virtual"><scope>general::ServerClient&lt; Ttransfertype &gt;</scope><name>protocol</name></member>
+      <member refid="classgeneral_1_1_server_client_3_01_ttransfertype_01_4_1a9a3c49921544145f2c2f3c6576e455d3" prot="public" virt="non-virtual"><scope>general::ServerClient&lt; Ttransfertype &gt;</scope><name>ServerClient</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,58 @@
+\section{general.\-I\-Application Interface Reference}
+\label{interfacegeneral_1_1_i_application}\index{general.\-I\-Application@{general.\-I\-Application}}
+Inheritance diagram for general.\-I\-Application\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interfacegeneral_1_1_i_application}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bf init} ()
+\item 
+bool {\bf start} ()
+\item 
+bool {\bf stop} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{general\-::\-I\-Application@{general\-::\-I\-Application}!init@{init}}
+\index{init@{init}!general::IApplication@{general\-::\-I\-Application}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}bool general.\-I\-Application.\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interfacegeneral_1_1_i_application_a0b53a00ac509c31efcc46fe5d20c156f}
+Initialize Application object +\-Do any pre setting up before application starts +\-Should include things not critical to the creation of the object. 
+
+Implemented in {\bf Server.\-Server} \doxyref{}{p.}{class_server_1_1_server_afb8a142170af0d8758ca23875bc93d69}.
+
+\index{general\-::\-I\-Application@{general\-::\-I\-Application}!start@{start}}
+\index{start@{start}!general::IApplication@{general\-::\-I\-Application}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}bool general.\-I\-Application.\-start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interfacegeneral_1_1_i_application_a44ef333a6aefd814ef4db3f04a45b5e1}
+Start application 
+
+Implemented in {\bf Server.\-Server} \doxyref{}{p.}{class_server_1_1_server_a161ab2103af04dcdd6d00645a3072d30}.
+
+\index{general\-::\-I\-Application@{general\-::\-I\-Application}!stop@{stop}}
+\index{stop@{stop}!general::IApplication@{general\-::\-I\-Application}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}bool general.\-I\-Application.\-stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interfacegeneral_1_1_i_application_a497ef4a13f7f98a1a7656c529933fa53}
+Stop application +\-Should return true on successful stop. +\-Should only stop if application is not busy, in this case return false. 
+
+Implemented in {\bf Server.\-Server} \doxyref{}{p.}{class_server_1_1_server_a84955f96214411a79da90cd2acfd7e2d}.
+
+
+
+The documentation for this interface was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+general/{\bf I\-Application.\-cs}\end{DoxyCompactItemize}

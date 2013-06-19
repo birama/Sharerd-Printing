@@ -1,0 +1,264 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="classgeneral_1_1_print_task" kind="class" prot="public">
+    <compoundname>general::PrintTask</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MarshalByRefObject</basecompoundref>
+    <basecompoundref refid="interfacegeneral_1_1_i_print_task" prot="public" virt="non-virtual">general.IPrintTask</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classgeneral_1_1_print_task_1a505ce8e30d8fd8088bc4dadb2338175d" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string general.PrintTask.userName</definition>
+        <argsstring></argsstring>
+        <name>userName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" line="6" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgeneral_1_1_print_task_1a2cd45e404fd1bd7e495b6eb6986a4747" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string general.PrintTask.printName</definition>
+        <argsstring></argsstring>
+        <name>printName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" line="7" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgeneral_1_1_print_task_1a4e919c90eeddad816def81aeac7db044" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int general.PrintTask.printCopies</definition>
+        <argsstring></argsstring>
+        <name>printCopies</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" line="8" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgeneral_1_1_print_task_1a22059cda8e02d2dca371c97310f295f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>general.PrintTask.PrintTask</definition>
+        <argsstring>()</argsstring>
+        <name>PrintTask</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" line="10" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" bodystart="10" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeneral_1_1_print_task_1a086539e46ffae0f944de374fe63974a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>general.PrintTask.PrintTask</definition>
+        <argsstring>(string userName, string printName, int printCopies)</argsstring>
+        <name>PrintTask</name>
+        <param>
+          <type>string</type>
+          <declname>userName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>printName</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>printCopies</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" line="15" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" bodystart="15" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeneral_1_1_print_task_1aa82565ecbe842cdfe40af0373fa1a434" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void general.PrintTask.SetPrintTask</definition>
+        <argsstring>(string userName, string printName, int printCopies)</argsstring>
+        <name>SetPrintTask</name>
+        <reimplements refid="interfacegeneral_1_1_i_print_task_1a869ccbcaa6eb242b8a1282a3048279ea">SetPrintTask</reimplements>
+        <param>
+          <type>string</type>
+          <declname>userName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>printName</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>printCopies</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" line="28" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" bodystart="28" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeneral_1_1_print_task_1ac339b19a713df50bd1a024bf890dc0f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string general.PrintTask.GetUserName</definition>
+        <argsstring>()</argsstring>
+        <name>GetUserName</name>
+        <reimplements refid="interfacegeneral_1_1_i_print_task_1aa374f737890ac7451b43466971d1e2e2">GetUserName</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" line="35" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeneral_1_1_print_task_1a057f7facea1dd68d7dcacc1f6f001017" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void general.PrintTask.SetUserName</definition>
+        <argsstring>(string name)</argsstring>
+        <name>SetUserName</name>
+        <reimplements refid="interfacegeneral_1_1_i_print_task_1a70295277bddc966f5e81d541f008810f">SetUserName</reimplements>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" line="40" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeneral_1_1_print_task_1a700a35044e3dcad226e210bd68494856" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string general.PrintTask.GetPrintName</definition>
+        <argsstring>()</argsstring>
+        <name>GetPrintName</name>
+        <reimplements refid="interfacegeneral_1_1_i_print_task_1ad47524f76cf88e6ab00709fc29433919">GetPrintName</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" line="45" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeneral_1_1_print_task_1aa8cd63d37f3f712189d6f682b7c8eb7d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void general.PrintTask.SetPrintName</definition>
+        <argsstring>(string name)</argsstring>
+        <name>SetPrintName</name>
+        <reimplements refid="interfacegeneral_1_1_i_print_task_1af8c7c18af1e8c0b9572b4899efaae197">SetPrintName</reimplements>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" line="50" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" bodystart="50" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeneral_1_1_print_task_1a4a815fd603038c9456433d9dbc6cd6d4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int general.PrintTask.GetCopies</definition>
+        <argsstring>()</argsstring>
+        <name>GetCopies</name>
+        <reimplements refid="interfacegeneral_1_1_i_print_task_1adbd8cb47159d8067e2ad50c7dbd4605c">GetCopies</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" line="55" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" bodystart="55" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classgeneral_1_1_print_task_1ae070eae77b0f39a8284ab2bd67de2b18" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void general.PrintTask.SetCopies</definition>
+        <argsstring>(int copies)</argsstring>
+        <name>SetCopies</name>
+        <reimplements refid="interfacegeneral_1_1_i_print_task_1a12cb98d10b2563d1af62598ed605cda3">SetCopies</reimplements>
+        <param>
+          <type>int</type>
+          <declname>copies</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" line="60" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" bodystart="60" bodyend="63"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="34">
+        <label>general.PrintTask</label>
+        <link refid="classgeneral_1_1_print_task"/>
+        <childnode refid="35" relation="public-inheritance">
+        </childnode>
+        <childnode refid="36" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>IPrintTask</label>
+        <link refid="interfacegeneral_1_1_i_print_task"/>
+      </node>
+      <node id="35">
+        <label>MarshalByRefObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="37">
+        <label>general.PrintTask</label>
+        <link refid="classgeneral_1_1_print_task"/>
+        <childnode refid="38" relation="public-inheritance">
+        </childnode>
+        <childnode refid="39" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>IPrintTask</label>
+        <link refid="interfacegeneral_1_1_i_print_task"/>
+      </node>
+      <node id="38">
+        <label>MarshalByRefObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" line="5" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/PrintTask.cs" bodystart="5" bodyend="64"/>
+    <listofallmembers>
+      <member refid="classgeneral_1_1_print_task_1a4a815fd603038c9456433d9dbc6cd6d4" prot="public" virt="non-virtual"><scope>general::PrintTask</scope><name>GetCopies</name></member>
+      <member refid="classgeneral_1_1_print_task_1a700a35044e3dcad226e210bd68494856" prot="public" virt="non-virtual"><scope>general::PrintTask</scope><name>GetPrintName</name></member>
+      <member refid="classgeneral_1_1_print_task_1ac339b19a713df50bd1a024bf890dc0f1" prot="public" virt="non-virtual"><scope>general::PrintTask</scope><name>GetUserName</name></member>
+      <member refid="classgeneral_1_1_print_task_1a4e919c90eeddad816def81aeac7db044" prot="private" virt="non-virtual"><scope>general::PrintTask</scope><name>printCopies</name></member>
+      <member refid="classgeneral_1_1_print_task_1a2cd45e404fd1bd7e495b6eb6986a4747" prot="private" virt="non-virtual"><scope>general::PrintTask</scope><name>printName</name></member>
+      <member refid="classgeneral_1_1_print_task_1a22059cda8e02d2dca371c97310f295f3" prot="public" virt="non-virtual"><scope>general::PrintTask</scope><name>PrintTask</name></member>
+      <member refid="classgeneral_1_1_print_task_1a086539e46ffae0f944de374fe63974a3" prot="public" virt="non-virtual"><scope>general::PrintTask</scope><name>PrintTask</name></member>
+      <member refid="classgeneral_1_1_print_task_1ae070eae77b0f39a8284ab2bd67de2b18" prot="public" virt="non-virtual"><scope>general::PrintTask</scope><name>SetCopies</name></member>
+      <member refid="classgeneral_1_1_print_task_1aa8cd63d37f3f712189d6f682b7c8eb7d" prot="public" virt="non-virtual"><scope>general::PrintTask</scope><name>SetPrintName</name></member>
+      <member refid="classgeneral_1_1_print_task_1aa82565ecbe842cdfe40af0373fa1a434" prot="public" virt="non-virtual"><scope>general::PrintTask</scope><name>SetPrintTask</name></member>
+      <member refid="classgeneral_1_1_print_task_1a057f7facea1dd68d7dcacc1f6f001017" prot="public" virt="non-virtual"><scope>general::PrintTask</scope><name>SetUserName</name></member>
+      <member refid="classgeneral_1_1_print_task_1a505ce8e30d8fd8088bc4dadb2338175d" prot="private" virt="non-virtual"><scope>general::PrintTask</scope><name>userName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

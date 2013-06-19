@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="classgeneral_1_1_computer" kind="class" prot="public">
+    <compoundname>general::Computer</compoundname>
+    <basecompoundref refid="classgeneral_1_1_a_computer_3_01_tprinter_00_01_tuser_01_4" prot="public" virt="non-virtual">general.AComputer&lt; Tprinter, Tuser &gt;</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="11">
+        <label>general.Computer</label>
+        <link refid="classgeneral_1_1_computer"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>AComputer&lt;IPrinter,int&gt;</label>
+        <link refid="classgeneral_1_1_a_computer_3_01_tprinter_00_01_tuser_01_4"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="13">
+        <label>general.Computer</label>
+        <link refid="classgeneral_1_1_computer"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>AComputer&lt;IPrinter,int&gt;</label>
+        <link refid="classgeneral_1_1_a_computer_3_01_tprinter_00_01_tuser_01_4"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/Computer.cs" line="5" column="1" bodyfile="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/Computer.cs" bodystart="5" bodyend="6"/>
+    <listofallmembers>
+      <member refid="classgeneral_1_1_a_computer_3_01_tprinter_00_01_tuser_01_4_1a2757225751249691a992ac3131490c77" prot="public" virt="non-virtual"><scope>general::Computer</scope><name>name</name></member>
+      <member refid="classgeneral_1_1_a_computer_3_01_tprinter_00_01_tuser_01_4_1a2958528912a8e54a2996e34c7dff0f17" prot="public" virt="non-virtual"><scope>general::Computer</scope><name>printer</name></member>
+      <member refid="classgeneral_1_1_a_computer_3_01_tprinter_00_01_tuser_01_4_1a01d747a58d08f2074b8960c5293875fc" prot="public" virt="non-virtual"><scope>general::Computer</scope><name>user</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

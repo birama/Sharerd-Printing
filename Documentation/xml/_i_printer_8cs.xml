@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="_i_printer_8cs" kind="file">
+    <compoundname>IPrinter.cs</compoundname>
+    <innerclass refid="interface_i_printer_3_01_ttasktype_00_01_tstate_01_4" prot="public">IPrinter&lt; Ttasktype, Tstate &gt;</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="interface_i_printer_3_01_ttasktype_00_01_tstate_01_4" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal">IPrinter<sp/>&lt;Ttasktype,<sp/>Tstate&gt;{</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>getType();</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">Tstate<sp/>getState();</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/general/IPrinter.cs"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="dir_db3a54907829b36871118d03417739cd" kind="dir">
+    <compoundname>client</compoundname>
+    <innerfile refid="client_8cs">client.cs</innerfile>
+    <innerfile refid="client_g_u_i_8cs">clientGUI.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Documents and Settings/SteinsGate/My Documents/GitHub/Sharerd-Printing/client/"/>
+  </compounddef>
+</doxygen>
