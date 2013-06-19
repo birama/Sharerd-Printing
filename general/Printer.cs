@@ -4,85 +4,67 @@ using System.Collections.Generic;
 using System.Threading;
 
 namespace general{
-class Printer : MarshalByRefObject, IPrinter{
-        string printerName;
-        Queue<string> printerTasks = new Queue<string>();
-        //bool active;
-        bool idle;
 
-        public Printer()
-        {
-            Console.WriteLine("Printer(): \t\t-New Empty Printer created");
-            idle = CheckIdle();
-            
-        }
+public class Printer : MarshalByRefObject, IPrinter{
+//Private
+//Protected
 
-        public Printer(string printerName)
-        {
-            SetPrinterName(printerName);
-            Console.WriteLine("Printer(): \t\t-New Full Printer created : " + GetPrinterName() );
-            idle = CheckIdle();
-        }
+//Public
+public string printerName;
+private Queue<string> printerTasks = new Queue<string>();
+bool idle;
 
-        //GETTERS AND SETTERS
+public Printer(){
+Console.WriteLine("Printer(): \t\t-New Empty Printer created");
+idle = CheckIdle();
+}
 
-        public string GetPrinterName()
-        {
-            return printerName;
-        }
+public Printer(string printerName){
+SetPrinterName(printerName);
+Console.WriteLine("Printer(): \t\t-New Full Printer created : " + GetPrinterName() );
+idle = CheckIdle();
+}
 
-        public void SetPrinterName(string name)
-        {
-            printerName = name;
-        }
+//GETTERS AND SETTERS
+
+public string GetPrinterName(){
+return printerName;
+}
+
+public void SetPrinterName(string name){
+printerName = name;
+}
 
 
-        public bool CheckIdle()
-        {
-            if (this.printerTasks.Count == 0)
-            {
-                Console.WriteLine("CheckIdle(): \t\t-Set to Idle");
-                return true;
-            }
+public bool CheckIdle(){
+	if (this.printerTasks.Count == 0){
+	Console.WriteLine("CheckIdle(): \t\t-Set to Idle");
+	return true;
+	} else {
+	Console.WriteLine("CheckIdle(): \t\t-Set to Busy");
+	return false;
+	}
+}
 
-            else
-            {
-                Console.WriteLine("CheckIdle(): \t\t-Set to Busy");
-                return false;
-            }
-        }
+public void LoadPrintTask(string printName){
+printerTasks.Enqueue(printName);
+	if (idle == false){
+	Console.WriteLine("LoadPrintTask(): \t-Busy");
+	} else {
+	Console.WriteLine("LoadPrintTask(): \t-Idle");
+	Print(); 
+	}
+}
 
-        public void LoadPrintTask(string printName)
-        {
+public void Print(){
+Thread.Sleep(1300);
+Console.WriteLine(printerTasks.Dequeue() + "PRINTED");
+	if (!CheckIdle()){
+	Print();
+	} else {
+	Console.WriteLine ("Print() \t\t-All Tasks Completed");
+	}
+}
 
-            printerTasks.Enqueue(printName);
-
-            if (idle == false)
-            {
-                Console.WriteLine("LoadPrintTask(): \t-Busy");
-            }
-
-            else
-            {
-                Console.WriteLine("LoadPrintTask(): \t-Idle");
-                Print(); 
-            }
-        }
-
-        public void Print()
-        {
-            Thread.Sleep(1300);
-            Console.WriteLine(printerTasks.Dequeue() + "PRINTED");
-
-            if (!CheckIdle())
-            {
-                Print();
-            }
-
-            else
-            {
-                Console.WriteLine ("Print() \t\t-All Tasks Completed");
-            }
-        }
-    }
+}
 }
