@@ -2,17 +2,18 @@
 using System.Runtime.Remoting;
 using general;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Server{
 
 class Server : IApplication{
 
-private List<IPrinter> printerList;
+private List<IPrinter<IPrintTask,int>> printerList;
 private ATopology<IPrintTask> comm; 
 
 public Server(){
-this.printerlist = new List<IPrinter>();
-this.comm = new ServerClient<IPrintTask>(SoapProtocol<IPrinttask>);
+this.printerList = new List<IPrinter>();
+this.comm = new ServerClient<IPrintTask>();
 }
 
 public bool init(){
