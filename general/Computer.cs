@@ -2,6 +2,6 @@ using general;
 
 namespace general{
 
-public class Computer : AComputer<IPrinter,int>{
+public class Computer : AComputer<IPrinter<IPrintTask,int>,int>{
 }	
 }

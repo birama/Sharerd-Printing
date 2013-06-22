@@ -19,12 +19,12 @@ this.chnl = new HttpChannel(port);
 public bool connect(Ttransfertype objtype, string url){
 ChannelServices.RegisterChannel(this.chnl,false);
 RemotingConfiguration.RegisterWellKnownServiceType(typeof(Ttransfertype),url,WellKnownObjectMode.Singleton);
-chnl.StartListening();
+chnl.StartListening(null);
 return true;
 }
 
 public void disconnect(){
-this.chnl.StopListening();
+this.chnl.StopListening(null);
 }
 
 public bool send(Ttransfertype obj){

@@ -5,8 +5,10 @@ using System.Threading;
 
 namespace general{
 
-public class Printer : MarshalByRefObject, IPrinter{
+public class Printer : MarshalByRefObject, IPrinter<IPrintTask,int>{
 //Private
+static readonly string type = ("Default Test Printer");
+
 //Protected
 
 //Public
@@ -35,14 +37,17 @@ public void SetPrinterName(string name){
 printerName = name;
 }
 
+public string getType(){
+return type;
+}
 
-public bool CheckIdle(){
+public int getState(){
 	if (this.printerTasks.Count == 0){
 	Console.WriteLine("CheckIdle(): \t\t-Set to Idle");
-	return true;
+	return 1;
 	} else {
 	Console.WriteLine("CheckIdle(): \t\t-Set to Busy");
-	return false;
+	return 0;
 	}
 }
 

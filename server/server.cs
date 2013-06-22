@@ -28,7 +28,9 @@ this.comm.connect(PrintTask);
 return true;
 }
 
-public bool stop(){}
+public bool stop(){
 return this.comm.disconnect();
+}
+
 }
 }

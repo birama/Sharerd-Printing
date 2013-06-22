@@ -11,15 +11,15 @@ public interface IApplication{
 	+Do any pre setting up before application starts
 	+Should include things not critical to the creation of the object.
 */
-public bool init();
+bool init();
 
 /** Start application
 */
-public bool start();
+bool start();
 /** Stop application
 	+Should return true on successful stop.
 	+Should only stop if application is not busy, in this case return false.
 */
-public bool stop();
+bool stop();
 }
 }
