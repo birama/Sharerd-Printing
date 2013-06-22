@@ -12,7 +12,7 @@ private List<IPrinter<IPrintTask,int>> printerList;
 private ATopology<IPrintTask> comm; 
 
 public Server(){
-this.printerList = new List<IPrinter>();
+this.printerList = new List<IPrinter<IPrintTask,int>>();
 this.comm = new ServerClient<IPrintTask>();
 }
 

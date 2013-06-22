@@ -1,6 +1,6 @@
 ﻿using general;
-using general.Server;
-using general.Client;
+using Server;
+using Client;
 
 namespace SharedPrinting{
 
@@ -12,9 +12,9 @@ class SharedPrinting{
 static void Main(string[] args){
 IApplication app;
 	if (args[0] == "server"){
-	app = new Server.server();
+	app = new Server.Server();
 	} else if ((args[0]) == "client"){
-	app = new Client.client();
+	app = new Client.Client();
 	}
 }
 

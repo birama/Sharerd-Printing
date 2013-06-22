@@ -2,7 +2,7 @@ namespace general{
 
 public class ServerClient<Ttransfertype> : ATopology<Ttransfertype>{
 
-public ServerClient(IProtocol<Ttransfertype> protocol) : base(protocol){
+public ServerClient(IProtocol<Ttransfertype> protocol){
 
 }
 
