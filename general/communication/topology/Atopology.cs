@@ -13,7 +13,7 @@ protected IProtocol<Ttransfertype> protocol;
 //public
 public string name = "Default Abstract Topology!";
 
-public ATopology(string protocol{
+public ATopology(string protocol){
 switch (protocol){
 	case "ProtocolSoap":
 		this.protocol = ProtocolSoap<Ttransfertype>();
@@ -26,7 +26,7 @@ public ATopology(){
 this.protocol = ProtocolSoap<Ttransfertype>();
 }
 
-public string protocolTypes{
+public string[] protocolTypes{
 get { return protocols;}
 protected set { this.protocols = value;}
 }
