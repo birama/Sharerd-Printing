@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <OutputType>Library</OutputType>
     <ProjectGuid>{5E76D2C5-EE7F-4915-8C06-4EDBFABDD20B}</ProjectGuid>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="*.cs" />
@@ -11,9 +13,12 @@
     <Compile Include="communication\protocol\*.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Runtime.Remoting, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Runtime.Remoting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v2.0.50727\System.Runtime.Remoting.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v4.0.30319\System.Runtime.Remoting.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Target Name="Build">

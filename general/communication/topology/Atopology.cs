@@ -1,38 +1,37 @@
 using general;
 
-namespace general{
-
-public abstract class ATopology<Ttransfertype>{
+namespace general {
+public abstract class ATopology<Ttransfertype> {
 //private
 //private IUser[] user = new IUser[2];
-private string[] protocols = new string[] {"ProtocolSoap"};
-
+	private string[] protocols = new string[] { "ProtocolSoap" };
 //protected
-protected IProtocol<Ttransfertype> protocol;
-
+	protected IProtocol<Ttransfertype> protocol;
 //public
-public string name = "Default Abstract Topology!";
+	public string name = "Default Abstract Topology!";
 
-public ATopology(string protocol){
-switch (protocol){
-	case "ProtocolSoap":
-		this.protocol = ProtocolSoap<Ttransfertype>();
-	default:
-		this.protocol = ProtocolSoap<Ttransfertype>();
-}
-}
+	public ATopology(string protocol) {
+		switch (protocol) {
+		case "ProtocolSoap":
+			this.protocol = new ProtocolSoap<Ttransfertype> (80);
+			break;
+		default:
+			this.protocol = new ProtocolSoap<Ttransfertype> (80);
+			break;
+		}
+	}
 
-public ATopology(){
-this.protocol = ProtocolSoap<Ttransfertype>();
-}
+	public ATopology() {
+		this.protocol = new ProtocolSoap<Ttransfertype> (80);
+	}
 
-public string[] protocolTypes{
-get { return protocols;}
-protected set { this.protocols = value;}
-}
+	public string[] protocolTypes {
+		get { return protocols;}
+		protected set { this.protocols = value;}
+	}
 
-abstract public bool connect(Ttransfertype obj);
-abstract public void disconnect();
+	abstract public bool connect (Ttransfertype obj);
 
+	abstract public void disconnect ();
 }
 }
