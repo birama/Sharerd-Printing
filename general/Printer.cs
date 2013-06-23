@@ -14,17 +14,17 @@ static readonly string type = ("Default Test Printer");
 //Public
 public string printerName;
 private Queue<string> printerTasks = new Queue<string>();
-bool idle;
+int idle;
 
 public Printer(){
 Console.WriteLine("Printer(): \t\t-New Empty Printer created");
-idle = CheckIdle();
+idle = getState();
 }
 
 public Printer(string printerName){
 SetPrinterName(printerName);
 Console.WriteLine("Printer(): \t\t-New Full Printer created : " + GetPrinterName() );
-idle = CheckIdle();
+idle = getState();
 }
 
 //GETTERS AND SETTERS
@@ -53,7 +53,7 @@ public int getState(){
 
 public void LoadPrintTask(string printName){
 printerTasks.Enqueue(printName);
-	if (idle == false){
+	if (idle == 0){
 	Console.WriteLine("LoadPrintTask(): \t-Busy");
 	} else {
 	Console.WriteLine("LoadPrintTask(): \t-Idle");
@@ -64,7 +64,7 @@ printerTasks.Enqueue(printName);
 public void Print(){
 Thread.Sleep(1300);
 Console.WriteLine(printerTasks.Dequeue() + "PRINTED");
-	if (!CheckIdle()){
+	if (getState() == 1){
 	Print();
 	} else {
 	Console.WriteLine ("Print() \t\t-All Tasks Completed");

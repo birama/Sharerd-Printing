@@ -1,16 +1,19 @@
 ﻿using System;
 
-namespace general{
+namespace general {
+public interface IPrintTask {
+	void SetPrintTask (string userName, string printName, int printCopies);
 
-public interface IPrintTask{
-	void SetPrintTask(string userName, string printName, int printCopies);
-        String GetUserName();
-        void SetUserName(string name);
-        String GetPrintName();
-        void SetPrintName(string name);
-        int GetCopies();
-        void SetCopies(int copies);
+	String GetUserName ();
 
+	void SetUserName (string name);
+
+	String GetPrintName ();
+
+	void SetPrintName (string name);
+
+	int GetCopies ();
+
+	void SetCopies (int copies);
 }
-
 }

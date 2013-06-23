@@ -4,35 +4,31 @@ using System.Runtime.Remoting.Messaging;
 using System.Runtime.Remoting;
 using general;
 
-namespace general{
-
-public class ProtocolSoap<Ttransfertype> : IProtocol<Ttransfertype>{
+namespace general {
+public class ProtocolSoap<Ttransfertype> : IProtocol<Ttransfertype> {
 //Private
-private HttpChannel chnl;
-private Ttransfertype placeholder;
-
+	private HttpChannel chnl;
+	private Ttransfertype placeholder;
 //Public
-public ProtocolSoap(int port){
-this.chnl = new HttpChannel(port);
-}
+	public ProtocolSoap(int port) {
+		this.chnl = new HttpChannel (port);
+	}
 
-public bool connect(Ttransfertype objtype, string url){
-ChannelServices.RegisterChannel(this.chnl,false);
-RemotingConfiguration.RegisterWellKnownServiceType(typeof(Ttransfertype),url,WellKnownObjectMode.Singleton);
-chnl.StartListening(null);
-return true;
-}
+	public bool connect (Ttransfertype objtype, string url) {
+		ChannelServices.RegisterChannel (this.chnl, false);
+		RemotingConfiguration.RegisterWellKnownServiceType (typeof(Ttransfertype), url, WellKnownObjectMode.Singleton);
+		chnl.StartListening (null);
+		return true;
+	}
 
-public void disconnect(){
-this.chnl.StopListening(null);
-}
+	public void disconnect () {
+		this.chnl.StopListening (null);
+	}
 
-public bool send(Ttransfertype obj){
-return true;
-}
-
+	public bool send (Ttransfertype obj) {
+		return true;
+	}
 //public Ttransfertype recv(return this.placeholder;);
 
 }
-
 }
