@@ -1,37 +1,37 @@
 ﻿using System;
 using System.Runtime.Remoting;
-using general;
 using System.Collections;
 using System.Collections.Generic;
+using general;
+using log4net;
+using log4net.Config;
 
-namespace Server{
+namespace Server {
+class Server : IApplication {
 
-class Server : IApplication{
+	private ATopology<IPrintTask> comm;
+	readonly private ILog log = LogManager.GetLogger (typeof(Server));
 
-private List<IPrinter<IPrintTask,int>> printerList;
-private ATopology<IPrintTask> comm; 
+	public Server() {
+		BasicConfigurator.Configure ();
+		this.comm = new ServerClient<IPrintTask> ();
+	}
 
-public Server(){
-this.printerList = new List<IPrinter<IPrintTask,int>>();
-this.comm = new ServerClient<IPrintTask>();
-}
+	public bool init () {
+		log.Info ("Initilzing Server.");
+		return true;
+	}
 
-public bool init(){
-PrintTask pm = new PrintTask();
-Printer ptest = new Printer("debug");
-PrintTask pmf = new PrintTask("me","doc",1);
-return true;
-}
+	public bool start () {
+		log.Info ("Server Started");
+		this.comm.connect (ATopology<IPrintTask>.role.server);
+		return true;
+	}
 
-public bool start(){
-Console.WriteLine("static void Main(): \t-Server Started");
-this.comm.connect(PrintTask);
-return true;
-}
-
-public bool stop(){
-return this.comm.disconnect();
-}
-
+	public bool stop () {
+		log.Info ("Server Stopped");
+		this.comm.disconnect ();
+		return true;
+	}
 }
 }

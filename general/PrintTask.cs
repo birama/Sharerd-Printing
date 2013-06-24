@@ -1,7 +1,7 @@
 using System;
 
 namespace general {
-class PrintTask : MarshalByRefObject, IPrintTask {
+public class PrintTask : MarshalByRefObject, IPrintTask {
 	string userName;
 	string printName;
 	int printCopies;

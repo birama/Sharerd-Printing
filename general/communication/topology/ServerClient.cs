@@ -1,20 +1,30 @@
+using log4net;
+using log4net.Config;
+
 namespace general {
 public class ServerClient<Ttransfertype> : ATopology<Ttransfertype> {
+	private role currentrole;
+	readonly private ILog log = LogManager.GetLogger (typeof(ServerClient<Ttransfertype>));
 
-	public ServerClient(IProtocol<Ttransfertype> protocol) {
-
+	public ServerClient() {
+		BasicConfigurator.Configure ();
 	}
 
-	override public bool connect (Ttransfertype obj) {
-		if (this.protocol.connect (obj, "placeholder.soap")) {
-			return true;
+	override public bool connect (role currentrole) {
+		this.currentrole = currentrole;
+		if (this.currentrole == role.server) {
+		log.Info ("asking protocol to listen.");
+		this.protocol.listen ("host", 69);
+		} else {
+		log.Info ("asking protocol to connect.");
+		this.protocol.connect ("host", 69);
 		}
-//If operation does not finish anywhere else the connection was not completed properly.
-		return false;
+		return true;
 	}
 
 	override public void disconnect () {
-//this.protocol.dissconnect();
+		log.Info ("asking protcol to disconnect.");
+		this.protocol.disconnect ();
 	}
 }
 }

@@ -1,36 +1,45 @@
-using general;
+using log4net;
+using log4net.Config;
 
 namespace general {
 public abstract class ATopology<Ttransfertype> {
 //private
-//private IUser[] user = new IUser[2];
 	private string[] protocols = new string[] { "ProtocolSoap" };
+	readonly private ILog log = LogManager.GetLogger (typeof(ATopology<Ttransfertype>));
 //protected
 	protected IProtocol<Ttransfertype> protocol;
 //public
+	public enum role {
+	server, client
+	};
+
 	public string name = "Default Abstract Topology!";
 
 	public ATopology(string protocol) {
+		BasicConfigurator.Configure ();
+		log.Info ("using protocol: " + protocol);
 		switch (protocol) {
 		case "ProtocolSoap":
-			this.protocol = new ProtocolSoap<Ttransfertype> (80);
+			this.protocol = new ProtocolSoap<Ttransfertype> ();
 			break;
 		default:
-			this.protocol = new ProtocolSoap<Ttransfertype> (80);
+			this.protocol = new ProtocolSoap<Ttransfertype> ();
 			break;
 		}
 	}
 
 	public ATopology() {
-		this.protocol = new ProtocolSoap<Ttransfertype> (80);
+		BasicConfigurator.Configure ();
+		log.Info ("Using default protocol");
+		this.protocol = new ProtocolSoap<Ttransfertype> ();
 	}
 
 	public string[] protocolTypes {
 		get { return protocols;}
 		protected set { this.protocols = value;}
 	}
-
-	abstract public bool connect (Ttransfertype obj);
+//Abstract member functions
+	abstract public bool connect (role currentrole);
 
 	abstract public void disconnect ();
 }
