@@ -28,11 +28,11 @@ public class ProtocolSoap<Ttransfertype> : IProtocol<Ttransfertype> {
 		return true;
 	}
 
-	public bool listen (string url, int port) {
+		public bool listen (string url, int port) {
 		log.Info ("Listing on: " + url + " on port: " + port.ToString());
 		this.chnl = new HttpChannel (port);
 		ChannelServices.RegisterChannel (this.chnl, false);
-		RemotingConfiguration.RegisterWellKnownServiceType (typeof(Ttransfertype), url, WellKnownObjectMode.Singleton);
+		RemotingConfiguration.RegisterWellKnownServiceType (typeof(PrintTask), url, WellKnownObjectMode.Singleton);
 		chnl.StartListening (null);
 		return true;
 	}

@@ -1,60 +1,33 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.Remoting;
 using general;
-using System;
-using System.Runtime.Remoting.Channels.Http;
-using System.Runtime.Remoting.Channels;
+using log4net;
+using log4net.Config;
 
-namespace client
-{
-    class client
-    {
-        delegate void SetValueDelegate(int value);
-        delegate String GetNameDelegate();
+namespace Client {
+public class Client : IApplication {
 
-        static void Main(string[] args)
-        {
-            HttpChannel channel = new HttpChannel();
-            ChannelServices.RegisterChannel(channel);
-            IPrintTask obj = (IPrintTask)Activator.GetObject(
-            typeof(IPrintTask),
-            "http://localhost:1234/MyRemoteObject.soap");
-            Console.WriteLine("Client.Main(): Reference to rem.obj. acquired");
-            //Console.WriteLine(obj.GetPrintName());
-            //SetValueDelegate svDelegate = new SetValueDelegate(obj.SetPrintTask(v1, v2, v3));
-            SetValueDelegate svDelegate = new SetValueDelegate(obj.SetCopies);
-            IAsyncResult svAsyncres = svDelegate.BeginInvoke(1, null, null);
-			
-			Console.WriteLine("Client.Main(): Will call getPrintName()");
-			GetPrintNameDelegate gnPrintDelegate = new GetPrintNameDelegate(obj.GetPrintName);
-			IAsyncResult gnAsyncres = gnPrintDelegate.BeginInvoke(null,null);
-		
-			
-			Console.WriteLine("Client.Main(): Will call getUserName()");
-			GetUserNameDelegate gnUserDelegate = new GetUserNameDelegate(obj.GetUserName);
-			IAsyncResult gnAsyncres2 = gnUserDelegate.BeginInvoke(null,null);
-			
+	private ATopology<IPrintTask> comm;
+	readonly private ILog log = LogManager.GetLogger (typeof(Client));
 
-			Console.WriteLine("Client.Main(): EndInvoke for setValue()");
-			svDelegate.EndInvoke(svAsyncres);
-			
-			Console.WriteLine("Client.Main(): EndInvoke for getPrintName()");
-			String printname = gnPrintDelegate.EndInvoke(gnAsyncres);
-			
-			Console.WriteLine("Client.Main(): EndInvoke for getUserName()");
-			String username = gnUserDelegate.EndInvoke(gnAsyncres2);
+	public Client() {
+		BasicConfigurator.Configure ();
+		this.comm = new ServerClient<IPrintTask> ();
+	}
 
-			Console.WriteLine("Client.Main(): received name {0}",printname);
-			Console.WriteLine("Client.Main(): received name {0}",username);
+	public bool init () {
+		log.Info ("Initlzing Client.");
+		return true;
+	}
 
-			Console.WriteLine("Client.Main(): Will now read value");
-			int copy = obj.GetCopies();
-			Console.WriteLine("Client.Main(): New server side value {0}", copy);
-			
-            Console.ReadLine();
+	public bool start () {
+		log.Info ("Client Started.");
+		this.comm.connect (ATopology<IPrintTask>.role.client);
+		return true;
+	}
 
-        }
-    }
+	public bool stop () {
+		log.Info ("Stopping Client");
+		this.comm.disconnect ();
+		return true;
+	}
+}
 }
