@@ -4,6 +4,7 @@ using log4net.Config;
 namespace general {
 public class ServerClient<Ttransfertype> : ATopology<Ttransfertype> {
 	private role currentrole;
+	private Ttransfertype a;
 	readonly private ILog log = LogManager.GetLogger (typeof(ServerClient<Ttransfertype>));
 
 	public ServerClient() {
@@ -18,6 +19,8 @@ public class ServerClient<Ttransfertype> : ATopology<Ttransfertype> {
 		} else {
 		log.Info ("asking protocol to connect.");
 		this.protocol.connect ("host", 69);
+		a = this.protocol.recv ();
+				a.
 		}
 		return true;
 	}
