@@ -32,7 +32,9 @@ public class ProtocolSoap<Ttransfertype> : IProtocol<Ttransfertype> {
 		log.Info ("Listing on: " + url + " on port: " + port.ToString());
 		this.chnl = new HttpChannel (port);
 		ChannelServices.RegisterChannel (this.chnl, false);
-		RemotingConfiguration.RegisterWellKnownServiceType (typeof(PrintTask), url, WellKnownObjectMode.Singleton);
+		this.remoteobj = new Ttransfertype();
+		RemotingServices.Marshal(this.remoteobj, url);
+		//RemotingConfiguration.RegisterWellKnownServiceType (typeof(PrintTask), url, WellKnownObjectMode.Singleton);
 		chnl.StartListening (null);
 		return true;
 	}
