@@ -10,7 +10,7 @@ public interface IProtocol<Ttransfertype> {
 
 	void disconnect ();
 
-	bool send (Ttransfertype obj);
+	bool send (ref Ttransfertype obj);
 
 	Ttransfertype recv ();
 }
