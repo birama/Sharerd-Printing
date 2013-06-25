@@ -1,75 +1,184 @@
 using System;
-using System.Collections;
+using System.IO;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Drawing;
+using System.Drawing.Printing;
+using System.Diagnostics;
+using System.Printing;
 using System.Threading;
 
-namespace general{
+namespace printing
+{
+    public class Printer
+    {
+        string printerName;
+        private Queue<string> printerTasks = new Queue<string>();
+        bool idle = true;
 
-public class Printer : MarshalByRefObject, IPrinter<IPrintTask,int>{
-//Private
-static readonly string type = ("Default Test Printer");
+        public Printer()
+        {
+            printerName = GetDefaultPrinter();
+            Console.WriteLine("Printer(): \t\t-New Printer:" + printerName + " CREATED");
+        }
 
-//Protected
+        public string GetPrinterName()
+        {
+            return printerName;
+        }
 
-//Public
-public string printerName;
-private Queue<string> printerTasks = new Queue<string>();
-int idle;
+        public void SetPrinterName(string newName)
+        {
+            printerName = newName;
+        }
 
-public Printer(){
-Console.WriteLine("Printer(): \t\t-New Empty Printer created");
-idle = getState();
-}
+        public void PrintFilter(string filename)
+        {
+            switch (Path.GetExtension(filename))
+            {
+                case ".txt":
+                    //PrintDebug(filename);
+                    Console.WriteLine("Test2");
+                    Print(filename);
+                    break;
 
-public Printer(string printerName){
-SetPrinterName(printerName);
-Console.WriteLine("Printer(): \t\t-New Full Printer created : " + GetPrinterName() );
-idle = getState();
-}
+                case ".png":
+                    //PrintDebug(filename);
+                    Print(filename);
+                    break;
 
-//GETTERS AND SETTERS
+                case ".jpg":
+                    //PrintDebug(filename);
+                    Print(filename);
+                    break;
 
-public string GetPrinterName(){
-return printerName;
-}
+                case ".docx":
+                    //PrintDebug(filename);
+                    Print(filename);
+                    break;
 
-public void SetPrinterName(string name){
-printerName = name;
-}
+                case ".pdf":
+                    //PrintDebug(filename);
+                    Print(filename);
+                    break;
 
-public string getType(){
-return type;
-}
+                default:
+                    Console.WriteLine("UNSUPPORTED FILE TYPE");
+                    break;
+            }
+        }
 
-public int getState(){
-	if (this.printerTasks.Count == 0){
-	Console.WriteLine("CheckIdle(): \t\t-Set to Idle");
-	return 1;
-	} else {
-	Console.WriteLine("CheckIdle(): \t\t-Set to Busy");
-	return 0;
-	}
-}
+        public void Print(string filename)
+        {
+            try
+            {
 
-public void LoadPrintTask(string printName){
-printerTasks.Enqueue(printName);
-	if (idle == 0){
-	Console.WriteLine("LoadPrintTask(): \t-Busy");
-	} else {
-	Console.WriteLine("LoadPrintTask(): \t-Idle");
-	Print(); 
-	}
-}
+                Console.WriteLine();
+                ProcessStartInfo processP = new ProcessStartInfo(filename);
+                processP.Verb = "PrintTo";
+                processP.Arguments = printerName;
+                processP.CreateNoWindow = true;
+                processP.WindowStyle = ProcessWindowStyle.Hidden;
+                Process.Start(processP);
 
-public void Print(){
-Thread.Sleep(1300);
-Console.WriteLine(printerTasks.Dequeue() + "PRINTED");
-	if (getState() == 1){
-	Print();
-	} else {
-	Console.WriteLine ("Print() \t\t-All Tasks Completed");
-	}
-}
+            }
 
-}
+            catch (Exception e)
+            {
+                Console.WriteLine("Printing ERROR");
+            }
+        }
+
+        public void PrintDebug(string filename) //Only Reads TXT
+        {
+            try
+            {
+                Console.WriteLine("");
+                using (StreamReader rf = new StreamReader(filename))
+                {
+                    String line = rf.ReadToEnd();
+                    Console.WriteLine(line);
+                }
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine("File not found");
+            }
+        }
+
+        public string GetDefaultPrinter()
+        {
+            string value = "Error: No Printers connected";
+            PrinterSettings settings = new PrinterSettings();
+            foreach (string printerName in PrinterSettings.InstalledPrinters)
+            {
+                settings.PrinterName = printerName;
+                if (settings.IsDefaultPrinter)
+                {
+                    value = ("\"" + printerName + "\"");
+                    Console.WriteLine(printerName);
+                }
+            }
+
+            return value;
+        }
+
+        public int GetNumberOfPrintTasks()
+        {
+            LocalPrintServer localServer = new LocalPrintServer();
+            PrintQueueCollection queueCollection = localServer.GetPrintQueues();
+            PrintQueue printQueue = null;
+
+            foreach (PrintQueue pq in queueCollection)
+            {
+                printQueue = LocalPrintServer.GetDefaultPrintQueue();
+            }
+
+            int numTasks = 0;
+            if (printQueue != null)
+                numTasks = printQueue.NumberOfJobs;
+
+            return numTasks;
+        }
+
+
+        public void LoadTask(string filename)
+        {
+            printerTasks.Enqueue(filename);
+            if (idle == true)
+            {
+                Console.WriteLine("-Added to the Queue \t Printing Started");
+                PrintManager();
+            }
+
+            else
+            {
+                Console.WriteLine("-Added to the Queue");
+            }
+        }
+
+        public void PrintManager()
+        {
+            //int x = GetNumberOfPrintTasks();
+            int x = printerTasks.Count();
+            if (x > 0)
+            {
+                idle = false;
+                PrintFilter(printerTasks.Dequeue());
+                PrintManager();
+            }
+
+            else
+            {
+                idle = true;
+                Console.WriteLine("All Tasks COMPLETED");
+
+            }
+        }
+
+
+    }
 }
