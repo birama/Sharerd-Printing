@@ -1,7 +1,8 @@
+using System;
 namespace general {
-public abstract class AComputer<Tprinter, Tuser> {
-	public Tprinter[] printer = new Tprinter[2];
-	public Tuser[] user = new Tuser[2];
+	[Serializable]
+	public abstract class AComputer {
 	public string name;
+	public bool activity = false;
 }
 }
