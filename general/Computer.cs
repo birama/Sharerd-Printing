@@ -1,6 +1,10 @@
 using general;
+using System;
 
 namespace general {
-public class Computer : AComputer<IPrinter<IPrintTask,int>,int> {
+[Serializable]
+public class Computer : AComputer {
+		public string printme;
+		public int copies = 1;
 }
 }
