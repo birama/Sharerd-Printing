@@ -1,3 +1,8 @@
+# Project Specfic Files #
+#########################
+log4net.dll
+App.config
+
 # Sub-Directories#
 ##################
 [Dd]ebug/
