@@ -50,6 +50,11 @@ namespace Client
                 return true;
             }
 
+            private void btnPrint_Click(object sender, EventArgs e)
+            {
+                start();
+            }
+
             public bool start()
             {
 
