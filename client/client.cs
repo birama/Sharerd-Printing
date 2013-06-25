@@ -23,15 +23,31 @@ namespace Client
             InitializeComponent();
         }
        
+
+
         public void btnBrowse_Click(object sender, EventArgs e)
         {
-         //   DialogResult result = openFileDialog1.ShowDialog();
+            //   DialogResult result = openFileDialog1.ShowDialog();
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                txtFileName.Text = openFileDialog1.FileName;
+                string filename = openFileDialog1.FileName;
+                if (filename.EndsWith(".txt") || filename.EndsWith(".pdf") || filename.EndsWith(".docx") || filename.EndsWith(".doc") || filename.EndsWith(".png") || filename.EndsWith(".jpg"))
+                {
+
+                    listView.Text = DateTime.Now.ToString();
+                    Console.WriteLine("File Name:" + filename);
+
+                }
+                else
+                {
+                    // error message
+                    listView.Text = "This file is not supported";
+                }
             }
+            txtFileName.Text = openFileDialog1.FileName;
         }
-       
+
+
         public class Client : IApplication
         {
 
@@ -60,7 +76,7 @@ namespace Client
 
                 log.Info("Client Started.");
                 this.comm.connect(ATopology<Computer>.role.client);
-                this.comm.things[0].setFile("openFileDialog1.FileName");
+                this.comm.things[0].setFile("FileName");
                 return true;
             }
 
@@ -74,3 +90,4 @@ namespace Client
 
     }
 }
+
