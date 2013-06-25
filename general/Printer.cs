@@ -82,7 +82,8 @@ namespace printing
                 processP.CreateNoWindow = true;
                 processP.WindowStyle = ProcessWindowStyle.Hidden;
                 Process.Start(processP);
-
+                Console.WriteLine("Printing File: -" + filename);
+                Thread.Sleep(750);
             }
 
             catch (Exception e)
@@ -145,9 +146,13 @@ namespace printing
         }
 
 
-        public void LoadTask(string filename)
+        public void LoadTask(string filename, int copies)
         {
-            printerTasks.Enqueue(filename);
+            for (int x = 0; x < copies; x++)
+            {
+                printerTasks.Enqueue(filename);
+            }
+
             if (idle == true)
             {
                 Console.WriteLine("-Added to the Queue \t Printing Started");
