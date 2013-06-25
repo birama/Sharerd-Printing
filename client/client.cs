@@ -20,7 +20,7 @@ namespace Client
     {
         public Form1()
         {
-            // InitializeComponent();
+            InitializeComponent();
         }
        
         public void btnBrowse_Click(object sender, EventArgs e)
