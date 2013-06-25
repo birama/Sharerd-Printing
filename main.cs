@@ -1,4 +1,4 @@
-﻿using general;
+using general;
 using Server;
 using Client;
 using log4net;
@@ -7,7 +7,7 @@ using System;
 
 //using Client;
 namespace SharedPrinting {
-/* Sharerd Printing main
+/** Sharerd Printing main
 	+ used to start either a client or server using client or server classes.
 	+ seperates the configuration from the startup process.
 */
@@ -25,8 +25,6 @@ class SharedPrinting {
 			app = new Server.Server ();
 			} else if (args [0] == "client") {
 			app = new Client.Client ();
-			} else {
-
 			}
 		}
 		log.Info ("Statung app");
@@ -35,7 +33,8 @@ class SharedPrinting {
 			app.start ();
 			}
 		}
-		Console.ReadLine ();
+		
+		Console.ReadLine();
 		log.Info ("Stoping app");
 	}
 }
