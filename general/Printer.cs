@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
@@ -65,7 +64,7 @@ namespace printing
                     break;
 
                 default:
-                    Console.WriteLine("UNSUPPORTED FILE TYPE");
+                    Console.WriteLine("UNSUPPORTED FILE TYPE: " + filename);
                     break;
             }
         }
@@ -88,7 +87,7 @@ namespace printing
 
             catch (Exception e)
             {
-                Console.WriteLine("Printing ERROR");
+                Console.WriteLine("Printing ERROR: " + e);
             }
         }
 
@@ -106,7 +105,7 @@ namespace printing
 
             catch (Exception e)
             {
-                Console.WriteLine("File not found");
+                Console.WriteLine("File not found: " + e);
             }
         }
 
