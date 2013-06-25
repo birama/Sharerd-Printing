@@ -2,25 +2,31 @@ using log4net;
 using log4net.Config;
 
 namespace general {
-public class ServerClient<Ttransfertype> : ATopology<Ttransfertype> {
+	public class ServerClient<Ttransfertype> : ATopology<Ttransfertype> where Ttransfertype : AComputer, new(){
+	//public Ttransfertype[] clients = new Ttransfertype[2];
 	private role currentrole;
-	private Ttransfertype a;
+	int i = 0;
 	readonly private ILog log = LogManager.GetLogger (typeof(ServerClient<Ttransfertype>));
 
 	public ServerClient() {
 		BasicConfigurator.Configure ();
 	}
 
-	override public bool connect (role currentrole) {
+	override public bool connect (role currentrole, string url, int port) {
 		this.currentrole = currentrole;
 		if (this.currentrole == role.server) {
 		log.Info ("asking protocol to listen.");
-		this.protocol.listen ("host", 69);
+		this.protocol.listen (url, port);
+		//	while (this.i != -1) {
+			this.clients [i] = new Ttransfertype ();
+			this.protocol.send (ref this.clients[i]);
+			++i;
+		//	}
 		} else {
 		log.Info ("asking protocol to connect.");
-		this.protocol.connect ("host", 69);
-		a = this.protocol.recv ();
-				a.
+		this.protocol.connect (url, port);
+		this.clients [0] = this.protocol.recv ();
+//		this.callback (this.protocol.recv());
 		}
 		return true;
 	}
@@ -28,6 +34,7 @@ public class ServerClient<Ttransfertype> : ATopology<Ttransfertype> {
 	override public void disconnect () {
 		log.Info ("asking protcol to disconnect.");
 		this.protocol.disconnect ();
+		this.i = -1;
 	}
 }
 }
