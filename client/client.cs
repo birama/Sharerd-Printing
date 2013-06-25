@@ -1,33 +1,71 @@
 using general;
 using log4net;
+
 using log4net.Config;
+using System;
 
-namespace Client {
-public class Client : IApplication {
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Printing;
+using System.IO;
+using System.Text;
+using System.Windows.Forms;
 
-	private ATopology<IPrintTask> comm;
-	readonly private ILog log = LogManager.GetLogger (typeof(Client));
+namespace Client
+{
 
-	public Client() {
-		BasicConfigurator.Configure ();
-		this.comm = new ServerClient<IPrintTask> ();
-	}
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            // InitializeComponent();
+        }
+       
+        public void btnBrowse_Click(object sender, EventArgs e)
+        {
+         //   DialogResult result = openFileDialog1.ShowDialog();
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                txtFileName.Text = openFileDialog1.FileName;
+            }
+        }
+       
+        public class Client : IApplication
+        {
 
-	public bool init () {
-		log.Info ("Initlzing Client.");
-		return true;
-	}
+            private ATopology<Computer> comm;
+            readonly private ILog log = LogManager.GetLogger(typeof(Client));
 
-	public bool start () {
-		log.Info ("Client Started.");
-		this.comm.connect (ATopology<IPrintTask>.role.client);
-		return true;
-	}
+            public Client()
+            {
+                BasicConfigurator.Configure();
+                this.comm = new ServerClient<Computer>();
+            }
 
-	public bool stop () {
-		log.Info ("Stopping Client");
-		this.comm.disconnect ();
-		return true;
-	}
-}
+            public bool init()
+            {
+                log.Info("Initlzing Client.");
+                return true;
+            }
+
+            public bool start()
+            {
+
+                log.Info("Client Started.");
+                this.comm.connect(ATopology<Computer>.role.client);
+                this.comm.things[0].setFile("openFileDialog1.FileName");
+                return true;
+            }
+
+            public bool stop()
+            {
+                log.Info("Stopping Client");
+                this.comm.disconnect();
+                return true;
+            }
+        }
+
+    }
 }
