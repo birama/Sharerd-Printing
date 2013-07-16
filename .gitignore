@@ -21,6 +21,7 @@ x64/
 *.exe
 *.o
 *.so
+*.so.[0-9]*
 
 # Packages #
 ############
@@ -35,6 +36,7 @@ x64/
 *.tar
 *.zip
 *.bat
+
 # Logs and databases #
 ######################
 *.log
@@ -52,9 +54,11 @@ Icon?
 ehthumbs.db
 Thumbs.db
 Desktop.ini
+*~
 
 # IDE generated files #
 #######################
 *.suo
 *.user
 *.sln.docstates
+*.userprefs

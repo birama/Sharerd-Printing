@@ -8,33 +8,45 @@ using log4net;
 using log4net.Config;
 
 namespace general {
-public class ProtocolSoap<Ttransfertype> : IProtocol<Ttransfertype> {
+	public class ProtocolSoap<Ttransfertype> : IProtocol<Ttransfertype> {
+	protected class Wrapper<Ttransfertype2> : MarshalByRefObject {
+		public Ttransfertype2 obj;
+
+		public Wrapper(ref Ttransfertype2 obj) {
+			this.obj = obj;
+		}
+
+		public Ttransfertype2 get () {
+			return this.obj;
+		}
+	}
 //Private
+	private Wrapper<Ttransfertype> wraps;
 	private HttpChannel chnl;
 	private Ttransfertype remoteobj;
-		readonly private ILog log = LogManager.GetLogger (typeof(IProtocol<Ttransfertype>));
+	private string url;
+	readonly private ILog log = LogManager.GetLogger (typeof(ProtocolSoap<Ttransfertype>));
 //Public
 	public ProtocolSoap() {
 		BasicConfigurator.Configure ();
 	}
 
 	public bool connect (string url, int port) {
-		string url2 = "http://" + url + ":" + port.ToString ();
-		log.Info ("Connecting to: " + url2);
+		this.url = "http://" + url + ":" + port.ToString ();
+		log.Info ("Connecting to: " + this.url);
 		this.chnl = new HttpChannel ();
 		ChannelServices.RegisterChannel (this.chnl, false);
 		log.Debug ("Getting remote object.");
-		this.remoteobj = (Ttransfertype)Activator.GetObject (typeof(Ttransfertype), url2);
+		this.wraps = (Wrapper<Ttransfertype>)Activator.GetObject (typeof(Wrapper<Ttransfertype>), "http://localhost:69/obj.soap");
+		this.remoteobj = this.wraps.get ();
 		return true;
 	}
 
-		public bool listen (string url, int port) {
-		log.Info ("Listing on: " + url + " on port: " + port.ToString());
+	public bool listen (string url, int port) {
+		log.Info ("Listing on port: " + port.ToString());
+		this.url = url;
 		this.chnl = new HttpChannel (port);
 		ChannelServices.RegisterChannel (this.chnl, false);
-		this.remoteobj = new Ttransfertype();
-		RemotingServices.Marshal(this.remoteobj, url);
-		//RemotingConfiguration.RegisterWellKnownServiceType (typeof(PrintTask), url, WellKnownObjectMode.Singleton);
 		chnl.StartListening (null);
 		return true;
 	}
@@ -44,14 +56,16 @@ public class ProtocolSoap<Ttransfertype> : IProtocol<Ttransfertype> {
 		this.chnl.StopListening (null);
 	}
 
-	public bool send (Ttransfertype obj) {
-		log.Error ("This protocol does not facilate sending objects. Only changing referaced objects.");
+	public bool send (ref Ttransfertype obj) {
+		log.Debug ("Protocol is wrapping object in custom wrapper.");
+		this.wraps = new Wrapper<Ttransfertype> (ref obj);
+		RemotingServices.Marshal (this.wraps, "obj.soap");
 		return false;
 	}
 
 	public Ttransfertype recv () {
 		log.Debug ("Returning remote object to caller.");
-		return this.remoteobj;
+		return this.wraps.get ();
 	}
 }
 }

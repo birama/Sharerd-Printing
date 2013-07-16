@@ -1,13 +1,22 @@
-﻿using System;
-using System.Runtime.Remoting;
+﻿using System.Runtime.Remoting;
 using System.Collections;
 using System.Collections.Generic;
 using general;
+using printing;
 using log4net;
 using log4net.Config;
-using printing;
+using System;
 
-namespace Server {
+
+namespace serverGUI 
+{
+    public partial class Form2 : Form
+    {
+        public Form2()
+        {
+        //    InitializeComponent();
+        }
+        
 class Server : IApplication {
 
 	private ATopology<Computer> comm;
@@ -45,3 +54,5 @@ class Server : IApplication {
 	}
 }
 }
+    }
+
