@@ -11,7 +11,5 @@ public interface IProtocol<Ttransfertype> {
 	void disconnect ();
 
 	bool send (ref Ttransfertype obj);
-
-	Ttransfertype recv ();
 }
 }
