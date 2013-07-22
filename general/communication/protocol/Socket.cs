@@ -8,6 +8,7 @@ using System.Runtime.Serialization;
 using System.IO;
 using System.Threading;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace general {
 public class Socket<Ttransfertype> : AProtocol<Ttransfertype> {
@@ -77,24 +78,30 @@ public class Socket<Ttransfertype> : AProtocol<Ttransfertype> {
 	override public void sendmsg (AComputer<Ttransfertype> obj) {
 	log.Debug ("Sending on socket id: " + obj.to);
 	this.tickcountstart = Environment.TickCount;
-	
+	IFormatter formatter = new BinaryFormatter();
+	Stream stream = new MemoryStream();
+	formatter.Serialize(stream, obj);
+	stream.Close ();
 	byte[] buffsol = System.Text.Encoding.Unicode.GetBytes ("<SOL>");
-	byte[] buff = System.Text.Encoding.Unicode.GetBytes(obj.ToString());
+	byte[] buff = ((MemoryStream)stream).ToArray();
 	byte[] buffeol = System.Text.Encoding.Unicode.GetBytes ("<EOL>");
-	byte[] buffer  = new byte[buff.Length + buffeol.Length];
-	buff.CopyTo (buffer, 0);
-	buffeol.CopyTo (buffer, buff.Length);
+	byte[] buffer  = new byte[buff.Length + buffeol.Length + buffsol.Length];
+	buffsol.CopyTo (buffer,0);
+	buff.CopyTo (buffer, buffsol.Length);
+	buffeol.CopyTo (buffer, buff.Length+buffsol.Length);
 
 	int offset = 0;
 	int size = buffer.Length-1;
 	int sent = 0;
+	log.Debug("Sending bytes: " + size);
 		do {
 			if (Environment.TickCount > this.tickcountstart + this.timeout){
 			log.Error("Socket Timed out on sedning.");
+			break;
 			}
 			try {
-			log.Debug("Sending bytes: " + size);
 			sent += this.sockets[obj.to].Send(buffer, offset + sent, size - sent, SocketFlags.None);
+			log.Debug("Just sent: " + sent.ToString());
 			} catch (SocketException ex){
 				if (ex.SocketErrorCode == SocketError.WouldBlock || ex.SocketErrorCode == SocketError.IOPending || ex.SocketErrorCode == SocketError.NoBufferSpaceAvailable){
 				Thread.Sleep(30);
@@ -112,18 +119,20 @@ public class Socket<Ttransfertype> : AProtocol<Ttransfertype> {
 
 	public override void recv(string id){
 	log.Debug ("Recving on socket id: " + id);
+	bool sol = false, eol = false;
 	this.tickcountstart = Environment.TickCount;
 	List<byte> buffer = new List<byte> ();
-	byte[] buff = new byte[255];
 	int rec = 0;
 		if (this.sockets [id].Poll (-1, SelectMode.SelectWrite)) {
 		do {
 			if (Environment.TickCount > this.tickcountstart + this.timeout) {
 			log.Error ("Socket Timed out on recving.");
+			break;
 			}
 			try {
-			log.Debug ("Recving more bytes.");
+			byte[] buff = new byte[255];
 			rec += this.sockets [id].Receive (buff,255, SocketFlags.None);
+			log.Debug ("Recving Bytes: " + rec);
 			buffer.AddRange (buff);
 			} catch (SocketException ex) {
 				if (ex.SocketErrorCode == SocketError.WouldBlock || ex.SocketErrorCode == SocketError.IOPending || ex.SocketErrorCode == SocketError.NoBufferSpaceAvailable) {
@@ -133,24 +142,55 @@ public class Socket<Ttransfertype> : AProtocol<Ttransfertype> {
 				}
 			}
 			string t = new string(System.Text.Encoding.Unicode.GetChars(buffer.ToArray()));
-			log.Debug("T is: " + t);
-			if (System.Text.RegularExpressions.Regex.IsMatch(t,"." + System.Text.RegularExpressions.Regex.Escape("<EOL>") + ".")){
-			log.Debug("EOL FOUND.");
+			//log.Debug("T is: " + t + "\n");
+			if (buffer.Count < 1){
+			log.Debug("Nothing read on socket.");
 			break;
+			} else if (sol == false){
+			sol = Regex.IsMatch(t,Regex.Escape("<SOL>") + ".");
+			this.tickcountstart = Environment.TickCount;
+			log.Debug("SOL FOUND.");
+			} else {
+			eol = Regex.IsMatch(t,"." + Regex.Escape("<EOL>") + ".");
+				if (eol == true){
+				log.Debug("EOL FOUND.");
+				break;
+				}
 			}
 		} while (true);
 		} else {
 		log.Debug ("Poll returned nothing to read.");
 		}
-		AComputer<Ttransfertype> obj = new Computer<Ttransfertype> ();
-		obj.connectionid = new string(System.Text.Encoding.Unicode.GetChars (buffer.ToArray()));
-		obj.topologymessage = false;
-		if (obj.data != null || obj != null || obj.topologymessage != false) {
-		log.Debug ("Data found returning to client.");
-		this.decap (obj, id);
-		} else {
-		log.Debug ("Message found sending to topology.");
-		this.topomsg (obj, id, new ATopology<Ttransfertype>.Dsend (this.sendmsg), new ATopology<Ttransfertype>.Drecv (this.recv));
+		log.Debug ("Recived " + rec.ToString() + " bytes");
+		string te =	new string(System.Text.Encoding.Unicode.GetChars(buffer.GetRange (0, 10).ToArray()));
+		log.Debug ("Start is: " + te + ". " + te.Length);
+		if (te.Equals ("<SOL>", StringComparison.Ordinal)) {
+		log.Debug ("<SOL> is at the start, removing. ");
+		buffer.RemoveRange (0,10);
+		sol = false;
+		}
+		te = new string(System.Text.Encoding.Unicode.GetChars(buffer.GetRange (rec-19, 10).ToArray()));
+		log.Debug ("End is: " + te + ". " + te.Length);
+		if (te.Equals ("<EOL>", StringComparison.Ordinal)) {
+		log.Debug ("<EOL> is at the End, removing.");
+		buffer.RemoveRange (rec-19, 10);
+		eol = false;
+		}
+
+		if (sol == false && eol == false) {
+		log.Debug ("Deserilizing obj");
+		Computer<Ttransfertype> obj;
+		IFormatter formatter = new BinaryFormatter ();
+		Stream stream = new MemoryStream (buffer.ToArray());
+		obj = (Computer<Ttransfertype>)formatter.Deserialize (stream);
+		log.Debug("Msg status: " + obj.topologymessage.ToString ());
+			if (obj.topologymessage == false) {
+			log.Debug ("Data found returning to client.");
+			this.decap (obj, id);
+			} else {
+			log.Debug ("Message found sending to topology.");
+			this.topomsg (obj, id, new ATopology<Ttransfertype>.Dsend (this.sendmsg), new ATopology<Ttransfertype>.Drecv (this.recv));
+			}
 		}
 	}
 }

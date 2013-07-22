@@ -5,29 +5,17 @@ using System.Collections.Generic;
 using general;
 using log4net;
 using log4net.Config;
-using printing;
 
 namespace Server {
-class Server : IApplication {
+class Server {
 
-	private ATopology<Computer> comm;
+	private INetwork<IPrintTask> net;
 	readonly private ILog log = LogManager.GetLogger (typeof(Server));
-	private Printer printer = new Printer();
 
 	public Server() {
 		BasicConfigurator.Configure ();
-		this.comm = new ServerClient<Computer> ();
-	}
-
-/*	public void callme(Computer c){
-		Console.ReadLine ();
-		this.printer.LoadTask(c.printme,c.copies);
-	}*/
-
-	public bool init () {
-		log.Info ("Initilzing Server.");
-		//this.comm.call.callback = this.callme;
-		return true;
+		this.net = new Network ();
+		this.net.startserver ();
 	}
 
 	public bool start () {
