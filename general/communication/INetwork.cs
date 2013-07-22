@@ -1,18 +1,9 @@
 namespace general{
-public interface INetwork {
-	// Send File
-	void sendfile(string file);
-
-	// Recive next file
-	byte[] recvfile();
-
-	// Connect to host
-	bool connect();
-
-	// start server
-	bool startserver();
-
-	// Close connection
+public interface INetwork<Ttransfertype> {
+	void send (Ttransfertype obj, string id);
+	void recv(Ttransfertype obj,string id);
+	void connect();
+	void startserver();
 	void close();
 }
 }

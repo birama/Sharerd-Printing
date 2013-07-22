@@ -166,8 +166,9 @@ namespace printing
 
         public void PrintManager()
         {
+			int x = 0;
             //int x = GetNumberOfPrintTasks();
-            int x = printerTasks.Count();
+            //int x = printerTasks.Count();
             if (x > 0)
             {
                 idle = false;

@@ -1,9 +1,10 @@
 namespace general{
 public class Callback<Ttransfertype> {
 	public delegate void caller (Ttransfertype return_value);
-	protected caller callback;
+	public caller callee;
 
-	Callback(caller callback) {
-	this.callback = new callback;
+	Callback() {
+	//this.callee = new caller(c);
 	}
+}
 }
