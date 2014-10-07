@@ -1,9 +1,0 @@
-digraph "general/communication/protocol" {
-  compound=true
-  node [ fontsize="10", fontname="Helvetica"];
-  edge [ labelfontsize="10", labelfontname="Helvetica"];
-  subgraph clusterdir_368ef012145aef7035dca8ed50f9a5db {
-    graph [ bgcolor="#ddddee", pencolor="black", label="communication" fontname="Helvetica", fontsize="10", URL="dir_368ef012145aef7035dca8ed50f9a5db.html"]
-  dir_7380c575865c24a15b683289ea304687 [shape=box, label="protocol", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_7380c575865c24a15b683289ea304687.html"];
-  }
-}
